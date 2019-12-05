@@ -11,9 +11,15 @@ class ContactsController < ApplicationController
   end
 
   get "/contacts/new" do
+    if logged_in?
+      erb :'contacts/new'
+    else
+      redirect to '/'
+    end
   end
 
   post "/contacts" do
+    params.to_s
   end
 
   get "/contacts/:id" do
