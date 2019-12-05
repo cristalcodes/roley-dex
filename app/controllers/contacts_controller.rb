@@ -21,7 +21,7 @@ class ContactsController < ApplicationController
   post "/contacts" do
     if logged_in?
       #
-      if params[:first_name]=="" || params[:phone]==""
+      if params[:first_name]=="" || params[:last_name]=="" || params[:phone]==""
         redirect to "/contacts/new"
       else
         @contact= current_user.contacts.build(params)
