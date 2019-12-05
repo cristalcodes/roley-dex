@@ -5,5 +5,5 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 use ContactsController
-use UserController
+use UsersController
 run ApplicationController
