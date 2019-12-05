@@ -2,7 +2,7 @@
 <br>
 <ul>
 <% @contacts.each do |c|%>
-  <li><a href="/contacts/<%= c.id %>"> <%= c.last_name.strip %>, <%= c.first_name.strip %> </a></li>
+  <a href="/contacts/<%= c.id %>"><li> <%= c.last_name.strip %>, <%= c.first_name.strip %> </li></a>
   <br>
 <% end %>
 </ul>
