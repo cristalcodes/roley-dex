@@ -1,0 +1,5 @@
+<h1> Your Contacts </h1>
+<br>
+<% @contacts.each do |c| %>
+  <a href="/contacts/<%c.id%>"> <%= c.last_name %>, <%= c.first_name %> </a>
+<% end %>
