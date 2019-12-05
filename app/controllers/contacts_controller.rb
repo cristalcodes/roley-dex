@@ -60,7 +60,24 @@ class ContactsController < ApplicationController
   end
 
   patch "/contacts/:id" do
-
+    if logged_in?
+      if params[:first_name]=="" || params[:last_name]=="" || params[:phone]==""
+        redirect to "/contacts/#{params[:id]}/edit"
+      else
+        @contact= Contact.find_by(id:params[:id])
+        if @contact && @contact.user== current_user
+          if @contact.update(first_name:params[:first_name], last_name:params[:last_name], mailing_address:params[:mailing_address], phone:params[:phone], birthday:params[:birthday])
+            redirect to "/contacts/#{@contact.id}"
+          else
+            redirect to "contacts/#{@contact.id}/edit"
+          end
+        else
+          redirect to "/contacts"
+        end
+      end
+    else
+      redirect to '/'
+    end
   end
 
   delete "/contacts/:id/delete" do

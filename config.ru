@@ -5,7 +5,7 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 
-Rack::MethodOverride
+use Rack::MethodOverride
 use ContactsController
 use UsersController
 use NotesController
