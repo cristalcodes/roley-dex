@@ -81,7 +81,15 @@ class ContactsController < ApplicationController
   end
 
   delete "/contacts/:id/delete" do
-
+    if logged_in?
+      @contact=Contact.find_by_id(params[:id])
+      if @contact && @contact.user==current_user
+        @contact.delete
+      end
+      redirect to "/contacts"
+    else
+      redirect to '/'
+    end 
   end
 
 
