@@ -1,7 +1,11 @@
 <div class="container">
-  <header></header>
+
   <div class="col-md-8 col-md-offset-2">
-    <h2>RoleyDex</h2>
+
+    <header><h2>RoleyDex</h2>
+
+      </header>
+
 
     <div class="content">
       <p>Technology made it possible to connect with just about anyone in the world. Yet, in an era of increasing worldwide connectivity, it's easy to feel disconnected from those we are closest to.</p>
@@ -15,13 +19,37 @@
 
     <div class="sidebar">
       <h3>Sign Up</h3>
-      <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
+      <form method="post" action="/signup">
+        <label for="first_name">First Name</label>
+        <input type="text" id= "first_name" name="first_name"><br>
+        <label for="last_name">Last Name </label>
+        <input type="text" id= "last_name" name="last_name"><br>
+        <label for="email">Email     </label>
+        <input type="text" id= "email" name="email"><br>
+        <label for="password">Password  </label>
+        <input type="password" id= "password" name="password"><br>
+        <input type="submit">
+      </form>
+      <br>
+      <br>
+      <br>
+      or
+      <br>
+      <br>
+      <h3>Log In</h3>
+      <form method="post" action="/login">
+          <label for="email">Email</label>
+          <input type="text" id= "email" name="email"><br>
+          <label for="password">Password</label>
+          <input type="password" id= "password" name="password"><br>
+          <input type="submit">
+        </form>
     </div>
+<br>
+<br>
+
+
+
 
   </div>
 </div>
