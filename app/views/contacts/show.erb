@@ -4,9 +4,10 @@
 <%= @contact.mailing_address %><br><br>
 <%= @contact.phone %><br><br>
 <%= @contact.birthday %><br><br>
-
+<a href="/contacts/<%=@contact.id %>/edit"><input type="button" name="edit" value="Edit Contact" ></a>
+<br>
+<br>
 <form action="/contacts/<%=@contact.id%>/delete" method="post">
   <input type="hidden" id="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete">
-
+  <input type="submit" value="Delete Contact">
 </form>
