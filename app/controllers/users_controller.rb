@@ -29,6 +29,15 @@ class UsersController < ApplicationController
     end
   end
 
+  get "/user" do
+    if logged_in?
+      @user=current_user
+      erb :'users/show'
+    else
+      redirect to "/"
+    end
+  end
+
   get "/logout" do
     if logged_in?
       session.clear

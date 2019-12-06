@@ -1,0 +1,13 @@
+<h1>Edit Account </h1>
+<form method="post" action="/user/edit">
+  <input type="hidden" id="hidden" name="_method" value="patch">
+  <label for="first_name">First Name:</label>
+  <input type="text" name="first_name" value="<%=@user.first_name%>">
+  <label for="last_name">Last Name:</label>
+  <input type="text" name="last_name" value="<%=@user.last_name%>">
+  <label for="email">Email:</label>
+  <input type="text" name="email" value="<%=@user.email%>">
+  <label for="password">Password:</label>
+  <input type="password" name="password" >
+  <input type="submit" value="Submit">
+</form>
