@@ -17,10 +17,12 @@
 
     <div class="wrapper">
       <header>
+        <%if logged_in?%>
         <nav>
           <a href="/contacts">Contacts</a>
           <a href="/contacts/new">New Contact</a>
         </nav>
+        <% end %>
       </header>
 
         <%= yield %>
