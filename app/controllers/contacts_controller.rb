@@ -26,7 +26,7 @@ class ContactsController < ApplicationController
       else
         @contact= current_user.contacts.build(params)
         if @contact.save
-          redirect to "/contacts/#{@contact.id}"
+          redirect to "/contacts"
         else
           redirect to "/contacts/new"
         end
@@ -89,7 +89,7 @@ class ContactsController < ApplicationController
       redirect to "/contacts"
     else
       redirect to '/'
-    end 
+    end
   end
 
 
