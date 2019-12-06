@@ -38,6 +38,19 @@ class UsersController < ApplicationController
     end
   end
 
+  get "/user/:id/edit" do #ASK NANCY IF WE DID THIS RIGHT.
+    @user=User.find_by_id(params[:id])
+    if @user && @user==current_user
+      erb :'users/edit.erb'
+    else
+      redirect to "/"
+    end
+  end
+
+  patch "/user/:id" do
+
+  end
+
   get "/logout" do
     if logged_in?
       session.clear

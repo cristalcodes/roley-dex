@@ -2,11 +2,10 @@
 <br>
 <h5>Your Contact Information</h5>
 <br>
-<label for="first_name">First Name:</label>
-<input type="text" name="first_name" value="<%=@user.first_name%>">
-<label for="last_name">Last Name:</label>
-<input type="text" name="last_name" value="<%=@user.last_name%>">
-<label for="email">Email:</label>
-<input type="text" name="email" value="<%=@user.email%>">
-<label for="password">Password:</label>
-<input type="password" name="password" >
+First Name: <%=@user.first_name%><br>
+Last Name: <%=@user.last_name%><br>
+Email: <%=@user.email%><br>
+Password:<!-- <%=@user.password_digest%>-->
+<br>
+<br>
+<a href="/user/<%=@user.id%>/edit"><input type="button" name="edit_user" value="Edit Info"></a>
