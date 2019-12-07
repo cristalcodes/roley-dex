@@ -50,8 +50,8 @@ class ContactsController < ApplicationController
 
   get "/contacts/:id/edit" do
     if logged_in?
-      @contact=user.contacts.find_by_id(params[:id])
-      if @contact && @contact.user == current_user #because you should only be able to edit the post if it is yours#
+      user=current_user
+      if @contact=user.contacts.find_by_id(params[:id])
         erb :'/contacts/edit'
       else
         redirect to "/contacts"
