@@ -1,7 +1,7 @@
 
 # RolyDex
 
-##Project status
+## Project status
 
 RolyDex is a contacts management application. Current version supports basic contact information; future versions will also include a notes management system.
 
@@ -25,15 +25,15 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 
 
-##Support
+## Support
 Should any issues or questions arise, you may email cristalcodes@gmail.com
 
 
 
-##Roadmap
+## Roadmap
 -Addition of notes management system
 -HTML/CSS formatting
 
 
-##License
+## License
 [MIT](https://choosealicense.com/licenses/mit/)
