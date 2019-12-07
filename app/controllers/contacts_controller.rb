@@ -79,12 +79,12 @@ class ContactsController < ApplicationController
       redirect to "/"
     end
   end
-   # contacts/#{@contact.id}/edit"
 
   delete "/contacts/:id/delete" do
     if logged_in?
-      @contact=Contact.find_by_id(params[:id])
-      if @contact && @contact.user==current_user
+      user= current_user
+      @contact=user.contacts.find_by_id(params[:id])
+      if @contact
         @contact.delete
       end
       redirect to "/contacts"
