@@ -20,7 +20,6 @@ class ContactsController < ApplicationController
 
   post "/contacts" do
     if logged_in?
-      #
       if params[:first_name]=="" || params[:last_name]=="" || params[:phone]==""
         redirect to "/contacts/new"
       else
@@ -31,7 +30,6 @@ class ContactsController < ApplicationController
           redirect to "/contacts/new"
         end
       end
-      #
     else
       redirect to "/"
     end
@@ -39,8 +37,12 @@ class ContactsController < ApplicationController
 
   get "/contacts/:id" do
     if logged_in?
-      @contact= Contact.find_by_id(params[:id])
-      erb :'contacts/show'
+      user = current_user
+      if @contact= user.contacts.find_by_id(params[:id])
+        erb :'contacts/show'
+      else
+        redirect to '/'
+      end
     else
       redirect to '/'
     end
@@ -48,7 +50,7 @@ class ContactsController < ApplicationController
 
   get "/contacts/:id/edit" do
     if logged_in?
-      @contact=Contact.find_by_id(params[:id])
+      @contact=user.contacts.find_by_id(params[:id])
       if @contact && @contact.user == current_user #because you should only be able to edit the post if it is yours#
         erb :'/contacts/edit'
       else
