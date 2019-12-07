@@ -66,21 +66,20 @@ class ContactsController < ApplicationController
       if params[:first_name]=="" || params[:last_name]=="" || params[:phone]==""
         redirect to "/contacts/#{params[:id]}/edit"
       else
-        @contact= Contact.find_by(id:params[:id])
-        if @contact && @contact.user== current_user
-          if @contact.update(first_name:params[:first_name], last_name:params[:last_name], mailing_address:params[:mailing_address], phone:params[:phone], birthday:params[:birthday])
-            redirect to "/contacts/#{@contact.id}"
-          else
-            redirect to "contacts/#{@contact.id}/edit"
-          end
+        user = current_user
+        @contact= user.contacts.find_by(id:params[:id])
+        if @contact
+          @contact.update(first_name:params[:first_name], last_name:params[:last_name], mailing_address:params[:mailing_address], phone:params[:phone], birthday:params[:birthday])
+          redirect to "/contacts/#{@contact.id}"
         else
-          redirect to "/contacts"
+          redirect to "/"
         end
       end
     else
-      redirect to '/'
+      redirect to "/"
     end
   end
+   # contacts/#{@contact.id}/edit"
 
   delete "/contacts/:id/delete" do
     if logged_in?
