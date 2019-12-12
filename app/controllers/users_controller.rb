@@ -8,14 +8,15 @@ class UsersController < ApplicationController
     end
   end
 
+
+
   post '/signup' do
-    if params[:first_name]=="" || params[:last_name]=="" || params[:email]=="" || params[:password]==""
-      redirect to '/'
-    else
-      @user=User.new(first_name: params[:first_name],last_name:params[:last_name], email:params[:email], password:params[:password])
-      @user.save
+    @user=User.new(params)
+    if @user.save
       session[:user_id]=@user.id
       redirect to '/contacts'
+    else
+      erb :'welcome'
     end
   end
 
